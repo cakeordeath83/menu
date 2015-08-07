@@ -2,30 +2,22 @@
 
 <h1>Listing Retailers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  
     <% @retailers.each do |retailer| %>
-      <tr>
-        <td><%= retailer.name %></td>
-        <td><%= retailer.address %></td>
-        <td><%= retailer.description %></td>
-        <td><%= link_to 'Show', retailer %></td>
-        <td><%= link_to 'Edit', edit_retailer_path(retailer) %></td>
-        <td><%= link_to 'Destroy', retailer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Add new Items', retailer_items_path(retailer) %><td>
-      </tr>
+      
+    
+      <h2><%= retailer.name %></h2>
+      <p><%= retailer.description %></p>
+      <p>Address: <%= retailer.address %></p>
+      <ul>
+      <li><%= link_to 'See menu items', retailer_items_path(retailer) %></li>
+      <li><%= link_to 'Edit', edit_retailer_path(retailer) %></li>
+      <li><%= link_to 'Destroy', retailer, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        
+    </ul>
     <% end %>
-  </tbody>
-</table>
+
+
 
 <br>
 

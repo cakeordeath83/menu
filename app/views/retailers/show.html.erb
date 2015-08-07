@@ -17,7 +17,13 @@
 
 <p>
   <strong>Items:</strong>
+  <% @retailer.items.each do |item| %>
+  <%= item.name %>
+  <%= item.price %>
+  <%=  item.category %>
+  <% end %>
 </p>
 
+<%= link_to 'Add new Items', new_retailer_item_path(@retailer) %>
 <%= link_to 'Edit', edit_retailer_path(@retailer) %> |
 <%= link_to 'Back', retailers_path %>

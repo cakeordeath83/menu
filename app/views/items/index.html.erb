@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Items for <%= @retailer.name %></h1>
+<h1>Menu Items for <%= @retailer.name %></h1>
 
 <table>
   <thead>
@@ -8,7 +8,6 @@
       <th>Name</th>
       <th>Price</th>
       <th>Category</th>
-      <th>Retailer</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,7 +19,7 @@
         <td><%= item.price %></td>
         <td><%= item.category %></td>
         
-        <td><%= link_to 'Show', retailer_items_path %></td>
+       
         <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
         <td><%= link_to 'Destroy', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -30,4 +29,5 @@
 
 <br>
 
-<%= link_to 'New Item', new_retailer_item_path %>
+<%= link_to 'Add New Item', new_retailer_item_path %>
+<%=link_to 'Home', retailers_path %>
