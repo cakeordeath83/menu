@@ -3,40 +3,65 @@
 <h1>Menu Items for <%= @retailer.name %></h1>
 
 <h2>Cake</h2>
-<%@retailer.items.each do |item| %>
-  <% if item.category == "Cake"  %>
-       <table>
-         <td><%= item.name %></td>
-         <td><%= item.price %></td>
-         <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
-         <td><%= link_to 'Destroy', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-       </table>
-  <% end %>
-<% end %>
+<table>
+  <thead>
+    <th>Name</th>
+     <th>Price</th>
+  </thead>
+  <tbody>
+     <%@retailer.items.each do |item| %>
+        <% if item.category == "Cake"  %>
+          <tr>
+           <td><%= item.name %></td>
+           <td><%= item.price %></td>
+           <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
+           <td><%= link_to 'Destroy', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+     <% end %>
+  </tbody>
+</table> 
 
 <h2>Sandwiches</h2>
-<%@retailer.items.each do |item| %>
-<% if item.category == "Sandwiches"  %>
-       <table>
-         <td><%= item.name %></td>
-         <td><%= item.price %></td>
-         <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
-         <td><%= link_to 'Destroy', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-       </table>
-  <% end %>
-<% end %>
-   
- <h2>Drink</h2>
-<%@retailer.items.each do |item| %>
-<% if item.category == "Drink"  %>
-       <table>
-         <td><%= item.name %></td>
-         <td><%= item.price %></td>
-         <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
-         <td><%= link_to 'Destroy', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-       </table>
-  <% end %>
-<% end %>
+<table>
+  <thead>
+    <th>Name</th>
+     <th>Price</th>
+  </thead>
+  <tbody>
+     <%@retailer.items.each do |item| %>
+        <% if item.category == "Sandwiches"  %>
+          <tr>
+           <td><%= item.name %></td>
+           <td><%= item.price %></td>
+           <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
+           <td><%= link_to 'Destroy', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+     <% end %>
+  </tbody>
+</table> 
+
+
+ <h2>Drinks</h2>
+<table>
+  <thead>
+    <th>Name</th>
+     <th>Price</th>
+  </thead>
+  <tbody>
+     <%@retailer.items.each do |item| %>
+        <% if item.category == "Drink"  %>
+          <tr>
+           <td><%= item.name %></td>
+           <td><%= item.price %></td>
+           <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
+           <td><%= link_to 'Destroy', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+     <% end %>
+  </tbody>
+</table> 
 
 
 <br>
