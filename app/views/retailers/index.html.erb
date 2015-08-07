@@ -10,9 +10,9 @@
       <p><%= retailer.description %></p>
       <p>Address: <%= retailer.address %></p>
       <ul>
-      <li><%= link_to 'See menu items', retailer_items_path(retailer) %></li>
-      <li><%= link_to 'Edit', edit_retailer_path(retailer) %></li>
-      <li><%= link_to 'Destroy', retailer, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <ol><%= link_to 'See menu items', retailer_items_path(retailer) %></ol>
+      <ol><%= link_to 'Edit', edit_retailer_path(retailer) %></ol>
+      <ol><%= link_to 'Destroy', retailer, method: :delete, data: { confirm: 'Are you sure?' } %></ol>
         
     </ul>
     <% end %>
