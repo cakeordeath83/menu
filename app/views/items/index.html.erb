@@ -13,7 +13,7 @@
         <% if item.category == "Cake"  %>
           <tr>
            <td><%= item.name %></td>
-           <td><%= item.price %></td>
+            <td><%= number_to_currency(item.price.to_f, :unit => "£") %></td>
            <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
            <td><%= link_to 'Destroy', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
@@ -33,7 +33,7 @@
         <% if item.category == "Sandwiches"  %>
           <tr>
            <td><%= item.name %></td>
-           <td><%= item.price %></td>
+           <td><%= number_to_currency(item.price.to_f, :unit => "£") %></td>
            <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
            <td><%= link_to 'Destroy', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
@@ -54,7 +54,7 @@
         <% if item.category == "Drink"  %>
           <tr>
            <td><%= item.name %></td>
-           <td><%= item.price %></td>
+           <td><%= number_to_currency(item.price.to_f, :unit => "£") %></td>
            <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
            <td><%= link_to 'Destroy', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>

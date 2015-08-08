@@ -9,12 +9,12 @@
       <h2><%= retailer.name %></h2>
       <p><%= retailer.description %></p>
       <p>Address: <%= retailer.address %></p>
-      <ul>
-      <ol><%= link_to 'See menu items', retailer_items_path(retailer) %></ol>
-      <ol><%= link_to 'Edit', edit_retailer_path(retailer) %></ol>
-      <ol><%= link_to 'Destroy', retailer, method: :delete, data: { confirm: 'Are you sure?' } %></ol>
+      
+      <button><%= link_to 'See menu items', retailer_items_path(retailer) %></button>
+      <%= link_to 'Edit', edit_retailer_path(retailer) %>
+      <%= link_to 'Destroy', retailer, method: :delete, data: { confirm: 'Are you sure?' } %>
         
-    </ul>
+    
     <% end %>
 
 
