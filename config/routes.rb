@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'signup' => 'retailers#new'
   resources :retailers do
     resources :items
   end

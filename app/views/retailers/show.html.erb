@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+
+<h2>Welcome <%= @retailer.name %></h2>
+
 <p>
   <strong>Name:</strong>
   <%= @retailer.name %>
@@ -25,5 +28,5 @@
 </p>
 
 <%= link_to 'Add new Items', new_retailer_item_path(@retailer) %>
-<%= link_to 'Edit', edit_retailer_path(@retailer) %> |
+<%= link_to 'Edit shop details', edit_retailer_path(@retailer) %> |
 <%= link_to 'Back', retailers_path %>
