@@ -1,24 +1,28 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <h1 class="page-header">Retailers</h1>
 
-<h1>Listing Retailers</h1>
-
-  
-    <% @retailers.each do |retailer| %>
-      
+  <div class="row">
+   
+      <% @retailers.each do |retailer| %>
     
-      <h2><%= retailer.name %></h2>
+      <div class="col-sm-3" id="retailer">
+    
+      <h4><%= retailer.name %></h4>
       <p><%= retailer.description %></p>
       <p>Address: <%= retailer.address %></p>
       
-      <button><%= link_to 'See menu items', retailer_items_path(retailer) %></button>
+      <button class="btn btn-default btn-xs"><%= link_to 'See menu items', retailer_items_path(retailer) %></button>
       <%= link_to 'Edit', edit_retailer_path(retailer) %>
       <%= link_to 'Destroy', retailer, method: :delete, data: { confirm: 'Are you sure?' } %>
-        
-    
+      
+    </div>
     <% end %>
+  
+ </div>
 
 
 
-<br>
 
 <%= link_to 'New Retailer', new_retailer_path %>
+</div>

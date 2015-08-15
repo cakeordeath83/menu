@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
   before_action :find_retailer
-
-  
+  before_action :find_item, only: [:show, :update, :destroy, :edit]
+   
   def index
   end
 
   def show
-    @item = @retailer.items.find(params[:id])
+    
   end
 
   
@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = @retailer.items.find(params[:id])
+    
   end
 
   def create
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = @retailer.items.find(params[:id])
+    
     respond_to do |format|
       if @item.update(item_params)
         format.html { redirect_to retailer_items_path, notice: 'Item was successfully updated.' }
@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = @retailer.items.find(params[:id])
+    
     @item.destroy
     respond_to do |format|
       format.html { redirect_to retailer_items_path, notice: 'Item was successfully destroyed.' }
@@ -61,6 +61,10 @@ class ItemsController < ApplicationController
   
     def find_retailer
       @retailer = Retailer.find(params[:retailer_id])
+    end
+  
+    def find_item
+      @item = @retailer.items.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

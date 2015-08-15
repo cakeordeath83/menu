@@ -1,70 +1,30 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  
+  <h1 class="page-header">Menu Items for <%= @retailer.name %></h1>
 
-<h1>Menu Items for <%= @retailer.name %></h1>
+    <div class="col-md-5">
+      <h2>Cake</h2>
+      <table class=" table table-bordered table-condensed">
+        <thead>
+          <th>Name</th>
+           <th>Price</th>
+        </thead>
+        <tbody>
+          <%@retailer.items.each do |item| %>
 
-<h2>Cake</h2>
-<table>
-  <thead>
-    <th>Name</th>
-     <th>Price</th>
-  </thead>
-  <tbody>
-     <%@retailer.items.each do |item| %>
-        <% if item.category == "Cake"  %>
-          <tr>
-           <td><%= item.name %></td>
-            <td><%= number_to_currency(item.price.to_f, :unit => "£") %></td>
-           <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
-           <td><%= link_to 'Destroy', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-     <% end %>
-  </tbody>
-</table> 
+                <tr>
+                 <td><%= item.name %></td>
+                  <td><%= number_to_currency(item.price.to_f, :unit => "£") %></td>
+                 <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
+                  <td><%= link_to 'Delete', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+           <% end %>
+        </tbody>
+      </table> 
+    </div>
 
-<h2>Sandwiches</h2>
-<table>
-  <thead>
-    <th>Name</th>
-     <th>Price</th>
-  </thead>
-  <tbody>
-     <%@retailer.items.each do |item| %>
-        <% if item.category == "Sandwiches"  %>
-          <tr>
-           <td><%= item.name %></td>
-           <td><%= number_to_currency(item.price.to_f, :unit => "£") %></td>
-           <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
-           <td><%= link_to 'Destroy', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-     <% end %>
-  </tbody>
-</table> 
-
-
- <h2>Drinks</h2>
-<table>
-  <thead>
-    <th>Name</th>
-     <th>Price</th>
-  </thead>
-  <tbody>
-     <%@retailer.items.each do |item| %>
-        <% if item.category == "Drink"  %>
-          <tr>
-           <td><%= item.name %></td>
-           <td><%= number_to_currency(item.price.to_f, :unit => "£") %></td>
-           <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
-           <td><%= link_to 'Destroy', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-     <% end %>
-  </tbody>
-</table> 
-
-
-<br>
-
-<%= link_to 'Add New Item', new_retailer_item_path %>
-<%=link_to 'Home', retailers_path %>
+  <div class="bottomlinks">
+    <button class="btn-default"><%= link_to 'Add New Item', new_retailer_item_path %></button>
+  </div>
+</div>
