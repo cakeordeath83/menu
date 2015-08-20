@@ -1,28 +1,29 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <div class="page-header text-center">
-    <h1>Menu Items for <%= @retailer.name %></h1>
+    <h1>Menu for <%= @retailer.name %></h1>
   </div>
 
-    <div class="col-md-6 col-md-offset-3">
-      <h2>Cake</h2>
-      <table class=" table table-bordered table-condensed">
-        <thead>
-          <th>Name</th>
-           <th>Price</th>
-        </thead>
-        <tbody>
-          <%@retailer.items.each do |item| %>
-
-                <tr>
+    <div class="col-md-6">
+      <% @retailer.grouped_items.each do |key, items| %>
+        <h2><%= key %></h2>
+        <table class=" table table-bordered table-condensed">
+          <thead>
+            <th>Name</th>
+            <th>Price</th>
+          </thead>
+          <tbody>
+            <% items.each do |item| %>
+               <tr>
                  <td><%= item.name %></td>
-                  <td><%= number_to_currency(item.price.to_f, :unit => "£") %></td>
+                 <td><%= number_to_currency(item.price.to_f, :unit => "£") %></td>
                  <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
-                  <td><%= link_to 'Delete', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                </tr>
-           <% end %>
-        </tbody>
+                 <td><%= link_to 'Delete', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+               </tr>
+            <% end %>
+         </tbody>
       </table> 
+     <% end %>
     </div>
 
   <div class=" container bottomlinks">

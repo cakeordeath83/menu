@@ -6,9 +6,9 @@ class Retailer < ActiveRecord::Base
    # items.order(:category)
   #end
   
-# def grouped_items
- #  items.group_by{|item| item.category}
-# end
+ def grouped_items
+   items.group_by{|item| item.category}
+ end
   
   
  # before_save {self.email = email.downcase}
