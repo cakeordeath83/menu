@@ -17,7 +17,7 @@
 /* JUMBOTRON */
 
 .jumbotron {
-    margin-bottom: 0px;
+    margin-bottom: -80px;
     background-image: asset_path('Sandwich.jpeg');
     background-position: 0% 25%;
     background-size: cover;
@@ -31,7 +31,7 @@
 }
 
 #retailer {
-  background-color: #E2F5FB;
+  
   border: 1px solid #4747D1;
   border-radius: 10px;
   padding: 10px;
@@ -45,6 +45,13 @@
    width :31.6%;
    
 }
+
+/* ITEMS INDEX PAGE */
+.retailer-details {
+  float: right;
+  text-align: center;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */

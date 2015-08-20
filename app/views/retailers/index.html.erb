@@ -14,13 +14,9 @@
    
       <div class="col-sm-4" id="retailer">
         
-      <h3><%= retailer.name %></h3>
-      <p><%= retailer.description %></p>
-      <p>Address: <%= retailer.address %></p>
+        <h3><%= retailer.name%></h3>
+        <p><%= link_to "Menu", retailer_items_path(retailer) %>
       
-      <button class="btn btn-default btn-xs"><%= link_to 'See menu items', retailer_items_path(retailer) %></button>
-      <%= link_to 'Edit', edit_retailer_path(retailer) %>
-      <%= link_to 'Destroy', retailer, method: :delete, data: { confirm: 'Are you sure?' } %>
       
     
     </div>
