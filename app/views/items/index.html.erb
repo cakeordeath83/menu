@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-  
-  <h1 class="page-header">Menu Items for <%= @retailer.name %></h1>
+  <div class="page-header text-center">
+    <h1>Menu Items for <%= @retailer.name %></h1>
+  </div>
 
-    <div class="col-md-5">
+    <div class="col-md-6 col-md-offset-3">
       <h2>Cake</h2>
       <table class=" table table-bordered table-condensed">
         <thead>
@@ -24,7 +25,9 @@
       </table> 
     </div>
 
-  <div class="bottomlinks">
+  <div class=" container bottomlinks">
+    <div class="col-md-2 col-md-offset-5">
     <button class="btn-default"><%= link_to 'Add New Item', new_retailer_item_path %></button>
+    </div>
   </div>
 </div>

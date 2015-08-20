@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-  <h1 class="page-header">Retailers</h1>
+<div class="container fullpage">
+  <div class="jumbotron">
+  <h1>What's for lunch?</h1>
+  <p>Choose a retailer below to see their menu for today</p>
+  
+</div>
 
-  <div class="row">
+  
+  
+  <div class="row retailer-row">
    
       <% @retailers.each do |retailer| %>
-    
-      <div class="col-sm-3" id="retailer">
-    
-      <h4><%= retailer.name %></h4>
+   
+      <div class="col-sm-4" id="retailer">
+        
+      <h3><%= retailer.name %></h3>
       <p><%= retailer.description %></p>
       <p>Address: <%= retailer.address %></p>
       
@@ -16,6 +22,7 @@
       <%= link_to 'Edit', edit_retailer_path(retailer) %>
       <%= link_to 'Destroy', retailer, method: :delete, data: { confirm: 'Are you sure?' } %>
       
+    
     </div>
     <% end %>
   

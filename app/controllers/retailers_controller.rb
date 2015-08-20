@@ -69,6 +69,6 @@ class RetailersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def retailer_params
-      params.require(:retailer).permit(:name, :address, :description, :email, :password)
+      params.require(:retailer).permit(:name, :address, :description)
     end
 end
