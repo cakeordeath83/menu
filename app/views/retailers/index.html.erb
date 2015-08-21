@@ -13,6 +13,7 @@
       <div class="col-sm-4" id="retailer">
          <h3><%= retailer.name%></h3>
          <p><%= link_to "Menu", retailer_items_path(retailer) %>
+        <p> <%= link_to image_tag(retailer.asset.url(:medium)), retailer_items_path(retailer) %></p>
            
       </div>
     <% end %>  

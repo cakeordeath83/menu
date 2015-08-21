@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821111452) do
+ActiveRecord::Schema.define(version: 20150821124726) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20150821111452) do
     t.string   "name"
     t.string   "address"
     t.text     "description"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "email"
     t.string   "password_digest"
     t.string   "address2"
@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(version: 20150821111452) do
     t.string   "city"
     t.string   "postcode"
     t.string   "openinghours"
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
   end
 
 end
