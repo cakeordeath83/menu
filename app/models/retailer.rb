@@ -1,10 +1,9 @@
 class Retailer < ActiveRecord::Base
   
+  has_secure_password
   has_many :items
    
-  #def sorted_items
-   # items.order(:category)
-  #end
+  
   
  def grouped_items
    items.group_by{|item| item.category}
@@ -17,6 +16,6 @@ class Retailer < ActiveRecord::Base
   #validates :email, presence: true, length: {maximum: 255},
     #        format: {with: VALID_EMAIL_REGEX},
    #         uniqueness: {case_sensitive: false}
-  #has_secure_password
+  
   #validates :password, presence: true, length: {minimum: 6}
 end

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  resources :paperclip_images
   get 'sessions/new'
   get 'signup' => 'retailers#new'
+  get '/login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
   resources :retailers do
     resources :items
   end

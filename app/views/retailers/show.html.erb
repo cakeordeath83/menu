@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+Retailer Id = <%= @retailer.id %><br>
+params[:session] = <%= params[:session]%><br>
+session[:retailer_id] = <%= session[:retailer_id]%>
+<! Since there is a retailer id within the session, suggests that there is a live session. So why don't the links change? !>
 
 <h2>Welcome <%= @retailer.name %></h2>
 

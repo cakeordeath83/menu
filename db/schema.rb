@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820111822) do
+ActiveRecord::Schema.define(version: 20150821111452) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20150820111822) do
   end
 
   add_index "items", ["retailer_id"], name: "index_items_on_retailer_id"
+
+  create_table "paperclip_images", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
+  end
 
   create_table "retailers", force: :cascade do |t|
     t.string   "name"
