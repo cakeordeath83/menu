@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_retailer
   
   def current_retailer
-    @_current_retailer ||= Retailer.find(session[:retailer_id]) if session[:retailer_id]
+    Retailer.find(session[:retailer_id]) if session[:retailer_id]
   end
   
   def require_retailer

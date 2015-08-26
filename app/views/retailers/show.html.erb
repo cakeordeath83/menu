@@ -2,8 +2,11 @@
 
 Retailer Id = <%= @retailer.id %><br>
 params[:session] = <%= params[:session]%><br>
-session[:retailer_id] = <%= session[:retailer_id]%>
-<! Since there is a retailer id within the session, suggests that there is a live session. So why don't the links change? !>
+session[:retailer_id] = <%= session[:retailer_id]%><br>
+session: <%= session.inspect %><br>
+params: <%= params %>
+
+
 
 <h2>Welcome <%= @retailer.name %></h2>
 
