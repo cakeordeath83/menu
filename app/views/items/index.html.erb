@@ -29,11 +29,13 @@
   <div class="retailer-details col-md-3">
     <h2><%= @retailer.name%></h2> <br>
     <%= @retailer.description%><br>
+    <br>
     <%= @retailer.address %><br>
     <%= @retailer.address2 %><br>
     <%= @retailer.address3 %><br>
     <%= @retailer.postcode %><br>
-    <%= @retailer.openinghours %><br>
+    <br>
+    <p>Opening hours: <%= @retailer.openinghours %></p><br>
   </div>
 
   <div class=" container bottomlinks">
