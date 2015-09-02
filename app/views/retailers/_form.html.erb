@@ -1,4 +1,4 @@
-<%= form_for @retailer, :url => retailers_path, :html => {:multipart => true} do |f| %>
+<%= form_for @retailer, :html => {:multipart => true} do |f| %>
   <% if @retailer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@retailer.errors.count, "error") %> prohibited this retailer from being saved:</h2>

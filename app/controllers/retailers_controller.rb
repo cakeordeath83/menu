@@ -40,13 +40,14 @@ class RetailersController < ApplicationController
   def update
     respond_to do |format|
       if @retailer.update(retailer_params)
-        format.html { redirect_to @retailer, notice: 'Retailer was successfully updated.' }
+        format.html { redirect_to retailer_items_path(@retailer), notice: 'Retailer was successfully updated.' }
         format.json { render :show, status: :ok, location: @retailer }
       else
         format.html { render :edit }
         format.json { render json: @retailer.errors, status: :unprocessable_entity }
       end
     end
+      
   end
 
   # DELETE /retailers/1

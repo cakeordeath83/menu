@@ -3,7 +3,7 @@ class Retailer < ActiveRecord::Base
   has_secure_password
   has_many :items
    
-  has_attached_file :asset, :styles => { :medium => "100x100>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :asset, :styles => { :medium => "200x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :asset, :content_type => /\Aimage\/.*\Z/
   
   
