@@ -3,27 +3,6 @@
 
 /* FONTS */
 
- @font-face {
-  font-family: 'chalkdust';
-  src:font-url('chalkdust.eot');
-  src:font-url('chalkdust.eot?#iefix') format('embedded-opentype'),
-    font-url('chalkdust.svg#chalkdust') format('svg'),
-    font-url('chalkdust.woff') format('woff'),
-    font-url('chalkdust.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'kg';
-  src:font-url('kg.eot');
-  src:font-url('kg.eot?#iefix') format('embedded-opentype'),
-    font-url('kg.svg#kg') format('svg'),
-    font-url('kg.woff') format('woff'),
-    font-url('kg.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 /* NAVIGATION */
 
 .navbar {
@@ -38,8 +17,7 @@
 .page-header {
   text-align: center;
   padding-top: -100px;
-  font-family: 'kg';
-  color: white;
+  
   
 }
 
@@ -55,20 +33,9 @@
 }
 
 /* TABLE */
-table {
-  font-family: 'kg';
-  color: white;
-  td {
-    font-family: 'kg';
-    font-size: 20px;
-    color: white;
-  }
-}
 
-.items-header {
-  font-family: 'kg';
-  color: white;
-}
+
+
 
 /* RETAILER INDEX PAGE */
 .retailer-row {
@@ -99,8 +66,7 @@ table {
 .retailer-details {
   float: right;
   text-align: center;
-  font-family: 'kg';
-  color: white;
+  
 }
 
 
@@ -116,7 +82,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  background-image: url('chalkboard-black.jpg') !important;
+  
   
 }
 .footer {

@@ -1,7 +1,7 @@
 class RetailersController < ApplicationController
   before_action :set_retailer, only: [:show, :edit, :update, :destroy]
   before_action :require_retailer, only: [:edit, :update, :destroy]
-
+  before_action :correct_retailer, only: [:edit, :update]
   # GET /retailers
   # GET /retailers.json
   def index
@@ -70,4 +70,17 @@ class RetailersController < ApplicationController
     def retailer_params
       params.require(:retailer).permit(:name, :address, :address2, :address3, :city, :postcode, :email, :openinghours, :description, :password, :password_confimation, :asset)
     end
+  
+  def correct_retailer
+    @retailer = Retailer.find(params[:id])
+    if @retailer != current_retailer
+      respond_to do |format|
+      format.html { redirect_to retailers_path, notice: "Sorry, you can't do that." }
+      end
+    end
+  end
+  
+  def current_retailer
+    Retailer.find(session[:retailer_id]) if session[:retailer_id]
+  end
 end
