@@ -1,22 +1,29 @@
 <p id="notice"><%= notice %></p>
 <div class="container fullpage">
+  
+</div>
+  
+<div>
   <div class="jumbotron">
-  <h1>What's for lunch today?</h1>
-  <p>Choose a retailer below to see their menu</p>
-</div>
-
-  
-<div class="container">
-  <% @retailers.in_groups_of(4, false).each do |group| %>
-    <div class="row retailer-row">
-      <% group.each do |retailer| %>
-        <div class="col-md-3 retailer-image">
-          <%= link_to image_tag(retailer.asset.url(:medium)), retailer_items_path(retailer) %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+    <h1>What's for lunch today?</h1>
+    <h5>Choose a retailer below to see their menu</h5>
+  </div>
 </div>
   
-
+<div class="retailer-index col-md-offset-2 col-md-8">
+  <table>
+    <tbody>
+    <% @retailers.each do |retailer|%>
+      <div class="row retailer-row">
+        <tr>
+          <td class="col-md-2 retailer-image"><%= link_to image_tag(retailer.asset.url(:thumb)), retailer_items_path(retailer) %></td>
+          <td class="col-md-2"><h5><%= link_to retailer.name, retailer_path(retailer) %></h5></td>
+          <td class="col-md-5"><%= retailer.description %><br>
+            <%= retailer.address %>, <%= retailer.address2 %>, <%= retailer.city %>, <%= retailer.postcode %></td>
+          <td class="col-md-1"><button class="btn"><%= link_to "See items", retailer_items_path(retailer)%></button></td>
+        </tr>
+      </div>
+    <% end %>
+    </tbody>
+  </table>
 </div>

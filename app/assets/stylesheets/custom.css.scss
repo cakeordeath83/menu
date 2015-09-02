@@ -7,6 +7,7 @@
 
 .navbar {
   background-color: #FF8533;
+  margin-bottom: -20px;
   
   .header {
     color: #4D4D55;
@@ -16,7 +17,7 @@
 /* HEADER */
 .page-header {
   text-align: center;
-  padding-top: -100px;
+  padding-top: -15px;
   
   
 }
@@ -24,11 +25,14 @@
 /* JUMBOTRON */
 
 .jumbotron {
-    margin-bottom: 80px;
-    background-image: url('Sandwich.jpg');
+    margin-bottom: -40px;
+    background-image: url('lunch 4.png');
     background-position: 0% 30%;
     background-size: cover;
     background-repeat: no-repeat;
+    color: #B8B7B7 ;
+  text-align: center;
+    
    
 }
 
@@ -38,9 +42,16 @@
 
 
 /* RETAILER INDEX PAGE */
+
+table > tbody, tr {
+  line-height: 60px;
+}
+
 .retailer-row {
-  margin: 20px;
+  margin: 40px;
+  padding: 20px;
   display: inline;
+  
 }
 
 
@@ -50,6 +61,7 @@
   padding: 10px;
   text-align: center;
   max-width: 100%;
+  min-height: 40px;
 }
 
 
@@ -75,6 +87,7 @@
 html {
   position: relative;
   min-height: 100%;
+  padding-bottom: 70px;
 }
 
 
@@ -93,4 +106,5 @@ body {
   height: 60px;
   background-color: #FF8533;
   padding: auto;
+  margin-top: 40px;
 }
