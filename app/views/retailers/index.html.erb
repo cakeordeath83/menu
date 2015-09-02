@@ -6,18 +6,17 @@
 </div>
 
   
-  
-  
-  <div class="row retailer-row">
-    <% @retailers.each do |retailer| %>
-      <div class="col-sm-4" id="retailer">
-         
-        <p> <%= link_to image_tag(retailer.asset.url(:medium)), retailer_items_path(retailer) %></p>
-           
-      </div>
-    <% end %>  
- </div>
-
+<div class="container">
+  <% @retailers.in_groups_of(4, false).each do |group| %>
+    <div class="row retailer-row">
+      <% group.each do |retailer| %>
+        <div class="col-md-3 retailer-image">
+          <%= link_to image_tag(retailer.asset.url(:medium)), retailer_items_path(retailer) %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
   
 
 </div>

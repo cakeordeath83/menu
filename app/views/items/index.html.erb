@@ -6,12 +6,9 @@
 
     <div class="col-md-6">
       <% @retailer.grouped_items.each do |key, items| %>
-        <h2><%= key %></h2>
-        <table class=" table table-bordered table-condensed">
-          <thead>
-            <th>Name</th>
-            <th>Price</th>
-          </thead>
+        <h2 class="items-header"><%= key %></h2>
+        <table class=" table table-condensed">
+          
           <tbody>
             <% items.each do |item| %>
                <tr>

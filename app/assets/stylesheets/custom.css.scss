@@ -1,6 +1,29 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* FONTS */
+
+ @font-face {
+  font-family: 'chalkdust';
+  src:font-url('chalkdust.eot');
+  src:font-url('chalkdust.eot?#iefix') format('embedded-opentype'),
+    font-url('chalkdust.svg#chalkdust') format('svg'),
+    font-url('chalkdust.woff') format('woff'),
+    font-url('chalkdust.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'kg';
+  src:font-url('kg.eot');
+  src:font-url('kg.eot?#iefix') format('embedded-opentype'),
+    font-url('kg.svg#kg') format('svg'),
+    font-url('kg.woff') format('woff'),
+    font-url('kg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 /* NAVIGATION */
 
 .navbar {
@@ -15,33 +38,54 @@
 .page-header {
   text-align: center;
   padding-top: -100px;
+  font-family: 'kg';
+  color: white;
   
 }
 
 /* JUMBOTRON */
 
 .jumbotron {
-    margin-bottom: -80px;
-    background-image: url("http://www.jamcoretraining.com/jct/wp-content/uploads/2013/08/healthy-sandwich1.jpg");
+    margin-bottom: 80px;
+    background-image: url('Sandwich.jpg');
     background-position: 0% 30%;
     background-size: cover;
     background-repeat: no-repeat;
    
 }
 
+/* TABLE */
+table {
+  font-family: 'kg';
+  color: white;
+  td {
+    font-family: 'kg';
+    font-size: 20px;
+    color: white;
+  }
+}
+
+.items-header {
+  font-family: 'kg';
+  color: white;
+}
 
 /* RETAILER INDEX PAGE */
 .retailer-row {
-  margin: 100px;
+  margin: 20px;
+  display: inline;
 }
 
-#retailer {
-  
-  border: 1px solid #4D4D55;
-  border-radius: 10px;
+
+
+.retailer-image {
+  vertical-align: middle;
   padding: 10px;
   text-align: center;
+  max-width: 100%;
 }
+
+
 
 .col-sm-4 {
    margin-left:15px;
@@ -55,6 +99,8 @@
 .retailer-details {
   float: right;
   text-align: center;
+  font-family: 'kg';
+  color: white;
 }
 
 
@@ -64,9 +110,14 @@ html {
   position: relative;
   min-height: 100%;
 }
+
+
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-image: url('chalkboard-black.jpg') !important;
+  
 }
 .footer {
   position: absolute;
