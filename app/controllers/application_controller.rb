@@ -15,12 +15,13 @@ class ApplicationController < ActionController::Base
     
   end
   
+  
+  
   def correct_retailer
-    @retailer = Retailer.find(params[:id])
-    if @retailer != current_retailer
-      respond_to do |format|
-      format.html { redirect_to retailers_path, notice: "Sorry, you can't do that." }
-      end
+    if current_retailer != nil && @retailer.name == current_retailer.name
+      true
+    else
+      false
     end
   end
   
