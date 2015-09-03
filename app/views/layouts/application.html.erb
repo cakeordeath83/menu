@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
  
+ 
 <body>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -21,11 +22,8 @@
       <div class="navbar-brand"><%= link_to "Home", retailers_path %></div>
     </div>
     
-    
-    
     <% if current_retailer %> 
     <ul class="nav navbar-nav navbar-right">
-      <li><%= current_retailer.email %></li>
       <li><%= link_to "Log out", logout_path, method: "delete" %></li>
     </ul>
     <% else %>
@@ -33,18 +31,16 @@
       <li><%= link_to "Sign Up", 'signup' %></li>
       <li><%= link_to "Log In", login_path %></li>
     </ul>
-    <% end %>
-      
-    
-    
+    <% end %> 
   </div>
 </nav>
   
-<%= yield %>
+  <%= render 'layouts/messages' %>
+  
+      <%= yield %>
 
   <footer class="footer">
-    <div class=container>Text here
-    </div>
+    <div class=container>Some text here</div>
   </footer>
 </body>
 </html>

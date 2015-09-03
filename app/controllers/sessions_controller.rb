@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
       
       session[:retailer_id] = @retailer.id
       
-      redirect_to retailer_path(@retailer), notice: 'Retailer was successfully logged in.'
+      flash[:notice] = "Welcome #{@retailer.name}!"
+      redirect_to retailer_items_path(@retailer)
         
       
     else

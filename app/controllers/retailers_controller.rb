@@ -55,7 +55,7 @@ class RetailersController < ApplicationController
   def destroy
     @retailer.destroy
     respond_to do |format|
-      format.html { redirect_to retailers_url, notice: 'Retailer was successfully destroyed.' }
+      format.html { redirect_to retailers_url, flash: 'Retailer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -75,7 +75,7 @@ class RetailersController < ApplicationController
     @retailer = Retailer.find(params[:id])
     if @retailer != current_retailer
       respond_to do |format|
-      format.html { redirect_to retailers_path, notice: "Sorry, you can't do that." }
+      format.html { redirect_to retailers_path, flash: "Sorry, you can't do that." }
       end
     end
   end

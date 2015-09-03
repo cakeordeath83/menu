@@ -7,7 +7,7 @@
 
 .navbar {
   background-color: #FF8533;
-  margin-bottom: -20px;
+  
   
   .header {
     color: #4D4D55;
@@ -26,6 +26,7 @@
 
 .jumbotron {
     margin-bottom: -40px;
+    margin-top: -20px;
     background-image: url('lunch 4.png');
     background-position: 0% 30%;
     background-size: cover;
@@ -84,6 +85,11 @@
   float: right;
   text-align: center;
   
+}
+
+/* FLASH MESSAGES */
+.flashes {
+  margin-top: -20px;
 }
 
 
