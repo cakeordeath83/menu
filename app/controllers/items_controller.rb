@@ -66,6 +66,8 @@ class ItemsController < ApplicationController
     def find_item
       @item = @retailer.items.find(params[:id])
     end
+  
+  
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params

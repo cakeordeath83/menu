@@ -11,17 +11,20 @@
 </div>
   
 <div class="retailer-index col-md-offset-2 col-md-8">
-  <table>
+  <table class="table">
     <tbody>
     <% @retailers.each do |retailer|%>
       <div class="row retailer-row">
         <tr>
-          <td class="col-md-2 retailer-image"><%= link_to image_tag(retailer.asset.url(:thumb)), retailer_items_path(retailer) %></td>
-          <td class="col-md-2"><h5><%= link_to retailer.name, retailer_path(retailer) %></h5></td>
-          <td class="col-md-5"><%= retailer.description %><br>
+          
+          <td class="col-md-2 retailer-image vert-align"><%= link_to image_tag(retailer.asset.url(:thumb)), retailer_items_path(retailer) %></td>
+          <td class="col-md-2 vert-align"><h5><%= link_to retailer.name, retailer_path(retailer) %></h5></td>
+          <td class="col-md-5 vert-align"><%= retailer.description %><br>
             <%= retailer.address %>, <%= retailer.address2 %>, <%= retailer.city %>, <%= retailer.postcode %></td>
-          <td class="col-md-1"><button class="btn"><%= link_to "See items", retailer_items_path(retailer)%></button></td>
+          <td class="col-md-1 vert-align"><button class="btn"><%= link_to "See menu", retailer_items_path(retailer)%></button></td>
+            
         </tr>
+      
       </div>
     <% end %>
     </tbody>

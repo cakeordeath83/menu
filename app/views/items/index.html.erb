@@ -4,7 +4,7 @@
     <h1>Menu for <%= @retailer.name %></h1>
   </div>
 
-    <div class="col-md-6">
+    <div class="col-md-8">
       <% @retailer.grouped_items.each do |key, items| %>
         <h2 class="items-header"><%= key %></h2>
         <table class=" table table-condensed">
@@ -12,10 +12,12 @@
           <tbody>
             <% items.each do |item| %>
                <tr>
-                 <td><%= item.name %></td>
-                 <td><%= number_to_currency(item.price.to_f, :unit => "£") %></td>
-                 <td><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
-                 <td><%= link_to 'Delete', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                 <td class="col-md-6"><%= item.name %></td>
+                 <td class="col-md-3"><%= number_to_currency(item.price.to_f, :unit => "£") %></td>
+                 <% if @retailer.id == current_retailer %> 
+                 <td class="col-md-1"><%= link_to 'Edit', edit_retailer_item_path(@retailer, item) %></td>
+                 <td class="col-md-1"><%= link_to 'Delete', retailer_item_path(@retailer, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
                </tr>
             <% end %>
          </tbody>
@@ -33,6 +35,7 @@
     <%= @retailer.postcode %><br>
     <br>
     <p>Opening hours: <%= @retailer.openinghours %></p><br>
+    
   </div>
 
   <div class=" container bottomlinks">

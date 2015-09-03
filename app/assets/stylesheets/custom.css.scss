@@ -43,14 +43,19 @@
 
 /* RETAILER INDEX PAGE */
 
-table > tbody, tr {
-  line-height: 60px;
+
+
+.table tbody>tr>td.vert-align{
+    vertical-align: middle;
+    height: 100px;
+  
 }
 
 .retailer-row {
   margin: 40px;
   padding: 20px;
   display: inline;
+  
   
 }
 
