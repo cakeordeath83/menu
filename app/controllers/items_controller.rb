@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   
   def new
     @item = @retailer.items.new
+    @category_options = Category.all.map{|c| [c.category, c.id]}
   end
 
   def edit
