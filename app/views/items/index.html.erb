@@ -8,7 +8,7 @@
   
     <div class="col-md-8">
       <% @retailer.grouped_items.each do |key, items| %>
-        <h2 class="items-header"><%= key %></h2>
+      <h2 class="items-header"><%= key.category %></h2>
         <table class=" table table-condensed">
           
           <tbody>

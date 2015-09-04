@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
+    @category_options = Category.all.map{|c| [c.category, c.id]}
   end
 
   def create
@@ -72,6 +72,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :price, :category, :retailer_id)
+      params.require(:item).permit(:name, :price, :category_id, :retailer_id)
     end
 end

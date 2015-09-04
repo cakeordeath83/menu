@@ -12,9 +12,9 @@
       </div>
     <% end %>
 
-  <%= f.text_field :name, label: "Item" %>
+    <%= f.text_field :name, label: "Item" %>
     <%= f.number_field :price, :step => 0.01 %>
-    <%= f.collection_select :category_id, Category.order(:category), :id, :category, include_blank: true %>
+  <%= f.select(:category_id, @category_options) %>
     <div style="text-align:center;"><%= f.submit %></div>
     
   <% end %>
