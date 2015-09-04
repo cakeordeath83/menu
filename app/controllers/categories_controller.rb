@@ -20,6 +20,9 @@ class CategoriesController < ApplicationController
   end
   
   def edit
+  end
+  
+  def update
     if @category.update(category_params)
       redirect_to categories_path
     else

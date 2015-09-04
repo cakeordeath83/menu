@@ -28,7 +28,7 @@ class RetailersController < ApplicationController
     @retailer = Retailer.new(retailer_params)
        if @retailer.save
          session[:retailer_id] = @retailer.id
-         redirect_to @retailer
+         redirect_to retailers_path
        else
          
          redirect_to signup_path

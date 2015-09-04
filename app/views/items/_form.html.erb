@@ -15,6 +15,7 @@
     <%= f.text_field :name, label: "Item" %>
     <%= f.number_field :price, :step => 0.01 %>
   <%= f.select(:category_id, @category_options) %>
+  
     <div style="text-align:center;"><%= f.submit %></div>
     
   <% end %>

@@ -6,6 +6,8 @@ class Retailer < ActiveRecord::Base
   has_attached_file :asset, :styles => { :medium => "200x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :asset, :content_type => /\Aimage\/.*\Z/
   
+  geocoded_by :postcode
+  after_validation :geocode, :if => :postcode_changed?
   
  def grouped_items
    items.group_by{|item| item.category}

@@ -4,6 +4,14 @@
     <h1>Menu for <%= @retailer.name %></h1>
   </div>
   
+  <div class=" container bottomlinks">
+    <div class="col-md-2 col-md-offset-5">
+      <% if current_retailer %>
+    <button class="btn-default"><%= link_to 'Add New Item', new_retailer_item_path %></button>
+      <% end %>
+    </div>
+  </div>
+  
   
   
     <div class="col-md-8">
@@ -38,14 +46,11 @@
     <%= @retailer.postcode %><br>
     <br>
     <p>Opening hours: <%= @retailer.openinghours %></p><br>
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=250x250&sensor=false&zoom=16&markers=#{@retailer.latitude}%2C#{@retailer.longitude}" %>
+    <br>
+    <p>Opening hours: <%= @retailer.openinghours %></p><br>
     
   </div>
 
-  <div class=" container bottomlinks">
-    <div class="col-md-2 col-md-offset-5">
-      <% if current_retailer %>
-    <button class="btn-default"><%= link_to 'Add New Item', new_retailer_item_path %></button>
-      <% end %>
-    </div>
-  </div>
+  
 </div>

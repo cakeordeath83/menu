@@ -1,9 +1,9 @@
-<%= bootstrap_form_for @category do |f| %>
+<div class="col-md-offset-4 col-md-4">
+  <%= bootstrap_form_for @category do |f| %>
 
+    <%= f.text_field :category %>
+    <%= f.number_field :order_number %>
+    <%= f.submit %>
 
-<%= f.text_field :category %>
-<%= f.number_field :order_number %>
-
-<%= f.submit %>
-
-<% end %>
+  <% end %>
+</div>

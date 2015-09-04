@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904092547) do
+ActiveRecord::Schema.define(version: 20150904151521) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "category"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "order_number"
+    t.boolean  "special"
   end
 
   create_table "items", force: :cascade do |t|
@@ -58,6 +59,8 @@ ActiveRecord::Schema.define(version: 20150904092547) do
     t.string   "asset_content_type"
     t.integer  "asset_file_size"
     t.datetime "asset_updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
 end
