@@ -2,18 +2,21 @@ class RetailersController < ApplicationController
   before_action :set_retailer, only: [:show, :edit, :update, :destroy]
   before_action :require_retailer, only: [:edit, :update, :destroy]
   before_action :correct_retailer, only: [:edit, :update]
-  # GET /retailers
-  # GET /retailers.json
+  
+  
   def index
     @retailers = Retailer.all
+    if params[:search]
+      @retailers = Retailer.search(params[:search])
+    else
+      @retailers = Retailer.all
+    end
   end
 
-  # GET /retailers/1
-  # GET /retailers/1.json
   def show
   end
 
-  # GET /retailers/new
+  
   def new
     @retailer = Retailer.new
   end

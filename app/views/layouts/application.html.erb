@@ -13,15 +13,30 @@
   <div class="container-fluid">
     
     <div class="navbar-header">
+      
+      <!-- Something to do with collapsing the navbar -->
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      
+      <!-- Home link -->
       <div class="navbar-brand"><%= link_to "Home", retailers_path %></div>
     </div>
     
+    <!-- Search part -->
+    <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+           <%= form_tag(retailers_path, :method => "get") do %>
+             <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search retailers" %>
+           <% end %>
+           <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+      </form>
+    
+    <!-- Links on the right -->
     <% if current_retailer %> 
     <ul class="nav navbar-nav navbar-right">
       <li><%= link_to "Log out", logout_path, method: "delete" %></li>
