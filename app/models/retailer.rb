@@ -29,4 +29,6 @@ class Retailer < ActiveRecord::Base
     items.find_all{|i| i.special == true}
   end
   
+  
+  
 end
