@@ -14,7 +14,10 @@
 
     <%= f.text_field :name, label: "Item" %>
     <%= f.number_field :price, :step => 0.01 %>
-  <%= f.select(:category_id, @category_options) %>
+    <%= f.select(:category_id, @category_options) %>
+  <%= f.form_group :special do %>
+  <%= f.check_box :special, label: "This is today's special" %>
+<% end %>
   
     <div style="text-align:center;"><%= f.submit %></div>
     
