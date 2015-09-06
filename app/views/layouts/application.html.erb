@@ -9,6 +9,7 @@
  
  
 <body>
+  <% unless url_for == static_pages_welcome_path %>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     
@@ -42,13 +43,17 @@
     <% end %> 
   </div>
 </nav>
+  <% end %>
   
   <%= render 'layouts/messages' %>
   
       <%= yield %>
-
-  <footer class="footer">
-    <div class=container>Some text here</div>
-  </footer>
-</body>
+  
+  <!-- footer -->
+    <% unless url_for == static_pages_welcome_path %>
+    <footer class="footer">
+      <div class=container>Some text here</div>
+    </footer>
+    <% end %>
+  </body>
 </html>
