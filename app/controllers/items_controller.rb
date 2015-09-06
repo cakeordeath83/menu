@@ -58,8 +58,7 @@ class ItemsController < ApplicationController
   
  def random_id
    array = Item.all.map(&:id)
-   @random_id = array.sample
-   @random_item = Item.find_by_id(@random_id)
+   random_id = array.sample
   end
   
   private
