@@ -4,5 +4,9 @@ class Item < ActiveRecord::Base
  
   accepts_nested_attributes_for :category 
   validates_presence_of :name, :price, :category
+
+    
+  
+  
   
 end

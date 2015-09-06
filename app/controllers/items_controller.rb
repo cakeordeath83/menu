@@ -1,14 +1,15 @@
 class ItemsController < ApplicationController
-  before_action :find_retailer
+  before_action :find_retailer, only: [:new, :create, :show, :update, :destroy, :edit]
   before_action :find_item, only: [:show, :update, :destroy, :edit]
    
+  helper_method :random_id
+  
   def index
+    @items = Item.all
   end
 
   def show
-    
   end
-
   
   def new
     @item = @retailer.items.new
@@ -48,14 +49,19 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    
     @item.destroy
-    respond_to do |format|
-      format.html { redirect_to retailer_items_path, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to retailer_items_path, notice: 'Item was successfully destroyed.' }
+        format.json { head :no_content }
     end
   end
-
+  
+ def random_id
+   array = Item.all.map(&:id)
+   @random_id = array.sample
+   @random_item = Item.find_by_id(@random_id)
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     
@@ -67,6 +73,7 @@ class ItemsController < ApplicationController
     def find_item
       @item = @retailer.items.find(params[:id])
     end
+  
   
   
 

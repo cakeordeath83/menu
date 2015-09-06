@@ -25,16 +25,20 @@
 /* JUMBOTRON */
 
 .jumbotron {
-    margin-bottom: -40px;
+    margin-bottom: 40px;
     margin-top: -20px;
     background-image: url('lunch 4.png');
-    background-position: 0% 30%;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    color: #B8B7B7 ;
-  text-align: center;
-    
+    color: #E0DDDF ;
+    text-align: center;
+    height: 500px;
    
+}
+
+#find-retailer {
+  padding-top: 70px;
 }
 
 /* TABLE */

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  get 'static_pages/welcome'
+
   resources :paperclip_images
+  get 'static_pages/welcome'
+  get 'static_pages/random'
+  get 'items/random'
   get 'sessions/new'
   get 'signup' => 'retailers#new'
   get '/login' => 'sessions#new', as: :login
@@ -14,7 +19,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'retailers#index'
+  root 'static_pages#welcome'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
