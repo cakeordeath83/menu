@@ -15,7 +15,7 @@
           <td class="col-md-2 vert-align"><h5><%= link_to retailer.name, retailer_path(retailer) %></h5></td>
           <td class="col-md-5 vert-align"><%= retailer.description %><br>
             <%= retailer.address %>, <%= retailer.address2 %>, <%= retailer.city %>, <%= retailer.postcode %></td>
-          <td class="col-md-1 vert-align"><button class="btn"><%= link_to "See menu", retailer_items_path(retailer)%></button></td>
+          <td class="col-md-1 vert-align"><%= link_to "See menu", retailer_items_path(retailer), class:"btn btn-default"%></td>
             
         </tr>
       

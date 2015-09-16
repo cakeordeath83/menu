@@ -6,8 +6,8 @@
   
   <div class=" container bottomlinks">
     <div class="col-md-2 col-md-offset-5">
-      <% if current_retailer %>
-    <button class="btn-default"><%= link_to 'Add New Item', new_retailer_item_path %></button>
+      <% if correct_retailer %>
+      <%= link_to 'Add New Item', new_retailer_item_path, class: "btn btn-default" %>
       <% end %>
     </div>
   </div>

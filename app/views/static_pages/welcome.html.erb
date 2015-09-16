@@ -6,11 +6,14 @@
   <div class="col-md-offset-3 col-md-9" id="find-retailer">
     <div class="col-md-3" >
       <h5>Find a retailer</h5>
+      
+        
       <div class="form-group">
              <%= form_tag(retailers_path, :method => "get") do %>
-               <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search retailers" %>
-             <% end %><br>
-             <button type="submit" class="btn btn-default">Submit</button>
+               <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search retailers" %><br>
+        <button class="btn btn-default", type="submit">Submit</button>
+             <% end %>
+             
      </div>
   </div>
     
@@ -26,7 +29,7 @@
       <!-- Surprise me -->
     <div class="col-md-3 ">
       <h5>Not sure what you fancy?</h5>
-       <button class="btn btn-lg"><%= link_to "Surprise me!", items_random_path %> </button>
+      <%= link_to "Surprise me!", items_random_path, class: "btn btn-default btn-lg" %> 
     </div>
     
   </div> <!-- jumbotron -->

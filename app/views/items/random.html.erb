@@ -20,7 +20,7 @@
             <td class=" retailer-image vert-align"><%= link_to image_tag(@item.retailer.asset.url(:thumb)), retailer_items_path(@item.retailer) %></td>
             <td class=" vert-align"><h5><%= link_to @item.retailer.name, retailer_path(@item.retailer) %></h5></td>
             
-            <td class=" vert-align"><button class="btn"><%= link_to "See menu", retailer_items_path(@item.retailer)%></button></td>
+            <td class=" vert-align"><%= link_to "See menu", retailer_items_path(@item.retailer), class: "btn btn-default"%></td>
           </tr>
         </div>
       </tbody>
@@ -28,7 +28,7 @@
   
     <div class="col-md-offset-3 col-md-6" style="text-align:center;">
       <h4 >No good? Click again for another suggestion </h4><br>
-      <button class="btn" style="text-align:center;"><%= link_to "Surprise me", items_random_path %></button>
+      <%= link_to "Surprise me", items_random_path, class:"btn btn-default" %>
     </div>
   
 </div>
