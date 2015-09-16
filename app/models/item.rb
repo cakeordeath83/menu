@@ -6,7 +6,9 @@ class Item < ActiveRecord::Base
   validates_presence_of :name, :price, :category
 
     
-  
+  def self.random
+    where(id: 13)
+  end
   
   
 end

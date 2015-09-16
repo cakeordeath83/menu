@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :find_retailer, only: [:new, :create, :show, :update, :destroy, :edit]
+  before_action :find_retailer, only: [:new, :create, :show, :update, :destroy, :edit, :index]
   before_action :find_item, only: [:show, :update, :destroy, :edit]
    
   helper_method :random_id
@@ -56,9 +56,10 @@ class ItemsController < ApplicationController
     end
   end
   
- def random_id
-   array = Item.all.map(&:id)
-   random_id = array.sample
+  def random
+    # need to write this to find random!!
+    array = Item.all.map {|item| item.id}
+    @item = Item.find(array.sample)
   end
   
   private

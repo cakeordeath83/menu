@@ -4,25 +4,23 @@
     <h1> Surprise! </h1>
   </div>
 
-  <% random_number = random_id %>
-  <! -- # CODEBAR - Pretty sure that this should be sat within the controller -->
+  
   
     <div style="text-align:center; margin:40px;">
-      <h4>How about a <%= Item.find_by_id(random_number).name %> <%= Item.find_by_id(random_number).category.category.singularize %> from <%= Item.find_by_id(random_number).retailer.name %>?</h4>
+      <h4>How about a <%= @item.name %> <%= @item.category.category.singularize %> from <%= @item.retailer.name %>?</h4>
     </div>
     
-    <% retailer = Item.find_by_id(random_number).retailer %>
+    
     
      
     <table class="table">
       <tbody>
         <div class="row retailer-row">
           <tr>
-            <td class=" retailer-image vert-align"><%= link_to image_tag(retailer.asset.url(:thumb)), retailer_items_path(retailer) %></td>
-            <td class=" vert-align"><h5><%= link_to retailer.name, retailer_path(retailer) %></h5></td>
-            <td class=" vert-align"><%= retailer.description %><br>
-              <%= retailer.address %>, <%= retailer.address2 %>, <%= retailer.city %>, <%= retailer.postcode %></td>
-            <td class=" vert-align"><button class="btn"><%= link_to "See menu", retailer_items_path(retailer)%></button></td>
+            <td class=" retailer-image vert-align"><%= link_to image_tag(@item.retailer.asset.url(:thumb)), retailer_items_path(@item.retailer) %></td>
+            <td class=" vert-align"><h5><%= link_to @item.retailer.name, retailer_path(@item.retailer) %></h5></td>
+            
+            <td class=" vert-align"><button class="btn"><%= link_to "See menu", retailer_items_path(@item.retailer)%></button></td>
           </tr>
         </div>
       </tbody>
