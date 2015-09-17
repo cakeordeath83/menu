@@ -39,5 +39,8 @@ class Retailer < ActiveRecord::Base
   end
   # May need to change LIKE to ILIKE in production as it is what PostgreSQL uses
   
+  def admin?
+    self.role == 'admin'
+  end
   
 end

@@ -26,7 +26,11 @@
       <div class="navbar-brand"><%= link_to "Home", static_pages_welcome_path %></div>
     </div>
     
-    
+    <% if current_retailer && current_retailer.admin? %> 
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Categories", categories_path %></li>
+    </ul>
+    <% end %>
      
     
     <!-- Links on the right -->

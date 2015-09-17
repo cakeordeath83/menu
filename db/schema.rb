@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150905094030) do
+ActiveRecord::Schema.define(version: 20150917160408) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "category"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150905094030) do
     t.datetime "asset_updated_at"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "role"
   end
 
 end

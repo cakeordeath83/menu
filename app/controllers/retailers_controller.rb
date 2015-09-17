@@ -11,7 +11,7 @@ class RetailersController < ApplicationController
     elsif params[:search]
       @retailers = Retailer.search(params[:search])
     elsif params[:category]
-      @retailers = Retailer.all
+      @retailers = Retailer.joins(:items).where(items: {category_id: params[:category][:category_id]}).uniq
     else
       @retailers = Retailer.all.sort_by{|r| r.name}
     end

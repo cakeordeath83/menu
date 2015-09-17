@@ -12,10 +12,7 @@ class ApplicationController < ActionController::Base
   
   def require_retailer
     redirect_to '/login' unless current_retailer
-    
   end
-  
-  
   
   def correct_retailer
     if current_retailer != nil && @retailer.name == current_retailer.name
@@ -23,6 +20,10 @@ class ApplicationController < ActionController::Base
     else
       false
     end
+  end
+  
+  def require_admin
+    redirect_to '/' unless current_retailer.admin?
   end
   
   
