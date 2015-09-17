@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
   
- 
+<% if params[:category] %>
+<h5>These are the retailers that sell <%= params[:category][:category_id] %></h5>
+<%= params %>
+<% end %>
 <div class="retailer-index col-md-offset-2 col-md-8">
   <table class="table">
     <thead>
@@ -16,10 +19,10 @@
       <div class="row retailer-row">
         <tr>
           
-          <td class="col-md-2 retailer-image vert-align"><%= link_to image_tag(retailer.asset.url(:thumb)), retailer_items_path(retailer) %></td>
-          <td class="col-md-2 vert-align"><h5><%= link_to retailer.name, retailer_path(retailer) %></h5></td>
+          <td class="col-md-2 retailer-image vert-align"><%= image_tag(retailer.asset.url(:thumb)) %></td>
+          <td class="col-md-2 vert-align"><h5><%= retailer.name %></h5></td>
           <td class="col-md-5 vert-align"><%= retailer.description %><br>
-            <%= retailer.address %>, <%= retailer.address2 %>, <%= retailer.city %>, <%= retailer.postcode %></td>
+            <%= retailer.address %><% unless retailer.address2.blank?%>, <%= retailer.address2 %><% end %><% unless retailer.address3.blank?%>, <%= retailer.address3 %><% end %>, <%= retailer.city %>, <%= retailer.postcode %></td>
           <td class="col-md-1 vert-align"><%= link_to "See menu", retailer_items_path(retailer), class:"btn btn-default"%></td>
             
         </tr>

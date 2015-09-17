@@ -60,14 +60,14 @@
     <%= @retailer.description%><br>
     <br>
     <%= @retailer.address %><br>
-    <%= @retailer.address2 %><br>
-    <%= @retailer.address3 %><br>
+    <% unless @retailer.address2.blank?%><%= @retailer.address2 %><br><% end %>
+    <% unless @retailer.address3.blank?%><%= @retailer.address3 %><br><% end %>
     <%= @retailer.postcode %><br>
     <br>
     <p>Opening hours: <%= @retailer.openinghours %></p><br>
     <%= image_tag "http://maps.google.com/maps/api/staticmap?size=250x250&sensor=false&zoom=17&markers=#{@retailer.latitude}%2C#{@retailer.longitude}" %>
     <br>
-    <p>Opening hours: <%= @retailer.openinghours %></p><br>
+    
     
   </div>
 

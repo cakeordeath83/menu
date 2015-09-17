@@ -6,12 +6,28 @@
 /* NAVIGATION */
 
 .navbar {
-  background-color: #A32900;
+  background-color: #990000;
   border-radius: 0 !important;
+  border: none;
   
   .header {
     color: #4D4D55;
   }
+}
+
+
+body > nav > div > div.navbar-header >.navbar-brand > a {
+    color: white;
+  font-size: 20px;
+  padding-top: 20px;
+  text-decoration: none;
+  
+  
+}
+
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
 }
 
 /* HEADER */
@@ -143,7 +159,7 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #A32900;
+  background-color: #990000;
   padding: auto;
   margin-top: 40px;
 }
