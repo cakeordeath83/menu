@@ -1,8 +1,11 @@
 class Retailer < ActiveRecord::Base
   
+  has_many :items
+  
+  
   before_save {self.email = email.downcase}
   has_secure_password
-  has_many :items
+  
    
   # FOR PAPERCLIP
   has_attached_file :asset, :styles => { :medium => "200x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
@@ -23,7 +26,8 @@ class Retailer < ActiveRecord::Base
   
   # METHODS
    def grouped_items
-     items.group_by{|item| item.category}
+     group = items.group_by{|item| item.category}
+     group.sort_by{|k,v| k.order_number}
    end
   
   def specials

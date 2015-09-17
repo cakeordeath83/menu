@@ -10,6 +10,8 @@ class RetailersController < ApplicationController
       @retailers = Retailer.near(params[:search])
     elsif params[:search]
       @retailers = Retailer.search(params[:search])
+    elsif params[:category]
+      @retailers = Retailer.all
     else
       @retailers = Retailer.all.sort_by{|r| r.name}
     end
