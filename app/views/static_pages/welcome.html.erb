@@ -14,24 +14,16 @@
          </div>
 
         <!-- Find food -->
-        <%= params %>
+       <div class="col-md-3" >
         <h5>Find a retailer</h5>
             <div class="form-group">
               <%= form_tag(retailers_path, :method => "get") do %>
-              <%= select("category", "category_id", Category.all.map {|a| [a.category, a.id] }) %><br>
+              <%= select("category", "category_id", Category.all.map {|a| [a.category, a.id]}, {}, :class => "form-control")%><br>
               <button class="btn btn-default", type="submit">Submit</button>
               <% end %>
             </div>
-        
-        
-        <div class="col-md-3 ">
-          <h5>Find food</h5>
-            <div class="form-group">
-              <%= select_tag :category_id, options_from_collection_for_select(Category.all, "id", "category"),  {class: "form-control"} %><br>
-              <%= submit_tag "Search" %>
-            </div>
         </div>
-
+        
           <!-- Surprise me -->
         <div class="col-md-3 ">
           <h5>Not sure what you fancy?</h5>
