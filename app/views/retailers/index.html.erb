@@ -3,9 +3,18 @@
   
 </div>
   
+<%= params[:search]%>
 
 <div class="retailer-index col-md-offset-2 col-md-8">
   <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= link_to "Name", :sort => "name" %></th>
+        <th><%= link_to "Address", :sort => "postcode" %></th>
+        <th></th>
+      </tr>
+    </thead>
     <tbody>
     <% @retailers.each do |retailer|%>
       <div class="row retailer-row">

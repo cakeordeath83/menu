@@ -6,10 +6,12 @@ class RetailersController < ApplicationController
   
   def index
     @retailers = Retailer.all
-    if params[:search]
+    if params[:search] =~ /^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$/
+      @retailers = Retailer.near(params[:search])
+    elsif params[:search]
       @retailers = Retailer.search(params[:search])
     else
-      @retailers = Retailer.all
+      @retailers = Retailer.all.sort_by{|r| r.name}
     end
   end
 

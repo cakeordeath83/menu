@@ -1,23 +1,27 @@
 <div class="col-md-offset-4 col-md-4 itemform">  
   <%= bootstrap_form_for [@retailer, @item] do |f| %>
+  
+  <!-- Errors -->
     <% if @item.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
-        <ul>
-        <% @item.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
+          <ul>
+            <% @item.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
       </div>
     <% end %>
 
+  <!-- Fields -->
     <%= f.text_field :name, label: "Item" %>
     <%= f.number_field :price, :step => 0.01 %>
     <%= f.select(:category_id, @category_options) %>
-  <%= f.form_group :special do %>
-  <%= f.check_box :special, label: "This is today's special" %>
-<% end %>
+    <%= f.form_group :special do %>
+    <%= f.check_box :special, label: "This is today's special" %>
+  
+  
+  <% end %>
   
     <div style="text-align:center;"><%= f.submit %></div>
     
