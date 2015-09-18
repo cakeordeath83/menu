@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
   
   def random
     # need to write this to find random!!
-    array = Item.all.map {|item| item.id}
+    array = Item.all.select{|item| item.category_id == 4 || item.category_id == 17}.map {|item| item.id}
     @item = Item.find(array.sample)
   end
   

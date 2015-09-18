@@ -5,21 +5,12 @@
     <div class="row">
       <div id="find-retailer">
         <!-- Find a retailer -->
-        <div class="col-md-offset-2 col-md-3" >
-          <h5>Find a retailer</h5>
-            <div class="form-group">
-              <%= form_tag(retailers_path, :method => "get") do %>
-              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search retailers" %><br>
-              <button class="btn btn-default", type="submit">Submit</button>
-              <% end %>
-            </div>
-       
-       </div>
+        
 
         <!-- Find food -->
-       <div class="col-md-3" >
-        <h5>Choose your food</h5>
-            <div class="form-group">
+       <div class="col-md-4" >
+        <h3>Choose your food</h3>
+            <div class="form-group" style="width:300px; padding-left:55px;">
               <%= form_tag(retailers_path, :method => "get") do %>
               <%= select("category", "category_id", Category.all.map {|a| [a.category, a.id]}, {}, :class => "form-control")%><br>
               <button class="btn btn-default", type="submit">Submit</button>
@@ -28,10 +19,22 @@
         </div>
         
           <!-- Surprise me -->
-        <div class="col-md-3 ">
-          <h5>Not sure what you fancy?</h5>
-            <%= link_to "Surprise me!", items_random_path, class: "btn btn-default btn-lg" %> 
+        <div class="col-md-4 ">
+          <h3>Not sure what you fancy?</h3>
+          <%= link_to "Surprise me!", items_random_path, class: "btn btn-default btn-lg" %> 
         </div>
+        
+        <!-- Choose your food -->
+        <div class="col-md-4" >
+          <h3>Find a retailer</h3>
+            <div class="form-group" style="width:300px; padding-left:55px;">
+              <%= form_tag(retailers_path, :method => "get") do %>
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search retailers" %><br>
+              <button class="btn btn-default", type="submit">Submit</button>
+              <% end %>
+            </div>
+       
+       </div>
       </div>
   </div> 
     </div>
@@ -39,16 +42,17 @@
   
 <div class="container">
   <div class="row">
-    <div class="col-md-offset-2 col-md-3 welcomebox">
+    <div class="welcomebox col-md-4">
       <h3>See all retailers</h3>
-      <p>Prefer to see a list of all the retailers? Click below to see the list </p>
+      <p>Prefer to see a list of all the retailers?</p> 
+      <p>Click below to see the list </p>
       <%= link_to "Show me everyone", retailers_path, class:"btn btn-default" %>
     </div>
     
-    <div class="col-md-3 welcomebox">
+    <div class="welcomebox col-md-4">
       <h3>Search for closest</h3>
       <p>Don't want to travel too far? Enter your postcode below for a list of retailers close to you</p>
-        <div class="form-group">
+        <div class="form-group" style="width:300px; padding-left:55px;">
            <%= form_tag(retailers_path, :method => "get") do %>
            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Enter your postcode" %><br>
            <button class="btn btn-default", type="submit">Submit</button>
@@ -56,9 +60,9 @@
         </div>
     </div>
     
-    <div class="col-md-3 welcomebox">
-      <h3>Want your menu added to the list?</h3>
-      <p>Sign up now and start adding your menu</p>
+    <div class="welcomebox col-md-4">
+      <h3>Are you a retailer?</h3>
+      <p>Do you want your menu displayed alongside the others? Sign up now and start adding your menu</p>
       <%= link_to "Sign up", signup_path, class: "btn btn-default" %>
     </div>
   
