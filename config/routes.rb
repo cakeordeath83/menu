@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'static_pages/random'
   get 'items/random'
   get 'sessions/new'
+  get '/no_results' => 'retailers#no_results'
   get 'signup' => 'retailers#new'
   get '/login' => 'sessions#new', as: :login
   post '/login' => 'sessions#create'

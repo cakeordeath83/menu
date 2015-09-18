@@ -46,5 +46,6 @@ group :development, :test do
   gem 'spring'
   
   gem 'pry'
+  gem 'pry-nav'
 end
 

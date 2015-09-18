@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   
   before_action :find_category, only:[:edit, :update, :destroy]
-  before_action :require_admin
+ 
   
   def index
     @categories = Category.all

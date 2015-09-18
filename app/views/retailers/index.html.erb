@@ -1,19 +1,16 @@
 <p id="notice"><%= notice %></p>
   
 <% if params[:category] %>
-<h5>These are the retailers that sell <%= params[:category][:category_id] %></h5>
-<%= params %>
+  <h3 style="text-align:center; margin-top:50px;">Here are all the retailers that sell <%= Category.find_by_id(params[:category][:category_id]).category.downcase %></h3>
 <% end %>
+
+<% if params[:search] =~ /^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$/ %>
+  <h3 style="text-align:center; margin-top:50px;">Here are all the retailers within a 5 minute walk</h3>
+<% end %>
+
 <div class="retailer-index col-md-offset-2 col-md-8">
   <table class="table">
-    <thead>
-      <tr>
-        <th></th>
-        <th><%= link_to "Name", :sort => "name" %></th>
-        <th><%= link_to "Address", :sort => "postcode" %></th>
-        <th></th>
-      </tr>
-    </thead>
+    
     <tbody>
     <% @retailers.each do |retailer|%>
       <div class="row retailer-row">

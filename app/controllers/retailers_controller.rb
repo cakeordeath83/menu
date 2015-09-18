@@ -7,7 +7,10 @@ class RetailersController < ApplicationController
   def index
     @retailers = Retailer.all
     if params[:search] =~ /^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$/
-      @retailers = Retailer.near(params[:search])
+      @retailers = Retailer.near(params[:search], 0.25)
+      if @retailers.empty?
+        redirect_to no_results_path
+      end
     elsif params[:search]
       @retailers = Retailer.search(params[:search])
     elsif params[:category]
@@ -35,7 +38,7 @@ class RetailersController < ApplicationController
     @retailer = Retailer.new(retailer_params)
        if @retailer.save
          session[:retailer_id] = @retailer.id
-         redirect_to retailers_path
+         redirect_to retailer_items_path(@retailer)
        else
          
          render :new
