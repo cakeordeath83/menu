@@ -26,23 +26,18 @@
       <div class="navbar-brand" id="Home"><%= link_to "Home", static_pages_welcome_path %></div>
     </div>
     
-    <% if current_retailer && current_retailer.admin? %> 
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Categories", categories_path %></li>
-    </ul>
-    <% end %>
-     
+       
     
     <!-- Links on the right -->
     <% if current_retailer %> 
     <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to " #{current_retailer.name}'s menu", retailer_items_path(current_retailer.id) %></li>
       <li><%= link_to "Log out", logout_path, method: "delete" %></li>
     </ul>
     <% else %>
       <ul class="nav navbar-nav navbar-right">
-      
         <li><%= link_to "Retailer Log In", login_path %></li>
-    </ul>
+      </ul>
     <% end %> 
   </div>
 </nav>

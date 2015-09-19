@@ -20,9 +20,11 @@ body > nav > div > div.navbar-header >.navbar-brand > a {
     color: white;
   font-size: 20px;
   padding-top: 20px;
-  text-decoration: none;
-  
-  
+  text-decoration: none; 
+}
+
+body > nav > div > div.navbar-header >.navbar-brand > a:hover {
+  background-color: #990000;
 }
 
 

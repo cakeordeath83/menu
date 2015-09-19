@@ -50,7 +50,7 @@ class RetailersController < ApplicationController
   def update
     respond_to do |format|
       if @retailer.update(retailer_params)
-        format.html { redirect_to retailer_items_path(@retailer), notice: 'Retailer was successfully updated.' }
+        format.html { redirect_to retailer_items_path(@retailer), notice: 'Your details were successfully updated.' }
         format.json { render :show, status: :ok, location: @retailer }
       else
         format.html { render :edit }
