@@ -18,8 +18,11 @@
           
           <td class="col-md-2 retailer-image vert-align"><%= image_tag(retailer.asset.url(:thumb)) %></td>
           <td class="col-md-2 vert-align"><h5><%= retailer.name %></h5></td>
-          <td class="col-md-5 vert-align"><%= retailer.description %><br>
+          <td class="col-md-4 vert-align"><%= retailer.description %><br>
             <%= retailer.address %><% unless retailer.address2.blank?%>, <%= retailer.address2 %><% end %><% unless retailer.address3.blank?%>, <%= retailer.address3 %><% end %>, <%= retailer.city %>, <%= retailer.postcode %></td>
+          <% if params[:search] =~ /^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$/ %>
+          <td class="col-md-1 vert-align"><%= (retailer.distance * 1906).round %> meters away</td>
+          <% end %>
           <td class="col-md-1 vert-align"><%= link_to "See menu", retailer_items_path(retailer), class:"btn btn-default"%></td>
             
         </tr>
