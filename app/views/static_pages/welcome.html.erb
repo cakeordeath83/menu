@@ -4,27 +4,25 @@
     <div class="container">
     <div class="row">
       <div id="find-retailer">
-        <!-- Find a retailer -->
         
-
-        <!-- Find food -->
+       <!-- Find food -->
        <div class="col-md-4" >
-        <h3>Choose your food</h3>
-            <div class="form-group" style="width:300px; padding-left:55px;">
-              <%= form_tag(retailers_path, :method => "get") do %>
-              <%= select("category", "category_id", Category.all.map {|a| [a.category, a.id]}, {}, :class => "form-control")%><br>
-              <button class="btn btn-default", type="submit">Submit</button>
-              <% end %>
-            </div>
-        </div>
+        <h3>Search for closest</h3>
+             <div class="form-group" style="width:300px; padding-left:55px;">
+             <%= form_tag(retailers_path, :method => "get") do %>
+             <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Enter your postcode" %><br>
+             <button class="btn btn-default", type="submit">Submit</button>
+             <% end %>
+          </div>
+       </div>
         
-          <!-- Surprise me -->
+        <!-- Surprise me -->
         <div class="col-md-4 ">
           <h3>Not sure what you fancy?</h3>
           <%= link_to "Surprise me!", items_random_path, class: "btn btn-default btn-lg" %> 
         </div>
         
-        <!-- Choose your food -->
+        <!-- Find a retailer -->
         <div class="col-md-4" >
           <h3>Find a retailer</h3>
             <div class="form-group" style="width:300px; padding-left:55px;">
@@ -33,15 +31,16 @@
               <button class="btn btn-default", type="submit">Submit</button>
               <% end %>
             </div>
-       
-       </div>
-      </div>
-  </div> 
-    </div>
+        </div>
+ 
+      </div> <!--container -->
+    </div><!--row -->
+  </div><!-- find-retailer -->  
 </div> <!-- jumbotron -->
   
 <div class="container">
   <div class="row">
+    
     <div class="welcomebox col-md-4">
       <h3>See all retailers</h3>
       <p>Prefer to see a list of all the retailers?</p> 
@@ -50,14 +49,14 @@
     </div>
     
     <div class="welcomebox col-md-4">
-      <h3>Search for closest</h3>
-      <p>Don't want to travel too far? Enter your postcode below for a list of retailers close to you</p>
-        <div class="form-group" style="width:300px; padding-left:55px;">
-           <%= form_tag(retailers_path, :method => "get") do %>
-           <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Enter your postcode" %><br>
-           <button class="btn btn-default", type="submit">Submit</button>
-           <% end %>
-        </div>
+      <h3>Find a retailer</h3>
+      <p>Know which retailer you want? Just type the name in the box below to see their menu</p>
+            <div class="form-group" style="width:300px; padding-left:55px;">
+              <%= form_tag(retailers_path, :method => "get") do %>
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search retailers" %><br>
+              <button class="btn btn-default", type="submit">Submit</button>
+              <% end %>
+            </div>
     </div>
     
     <div class="welcomebox col-md-4">
