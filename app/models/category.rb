@@ -2,7 +2,7 @@ class Category < ActiveRecord::Base
   
   validates_presence_of :category
   validates_presence_of :order_number
-  
+  validates_uniqueness_of :category
   has_many :items
   
  before_save :increase_number

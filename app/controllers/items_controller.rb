@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :find_retailer, only: [:new, :create, :show, :update, :destroy, :edit, :index]
   before_action :find_item, only: [:show, :update, :destroy, :edit]
-   
+  before_action :category_options, only: [:new, :edit] 
   helper_method :random_id
   
   def index
@@ -12,12 +12,13 @@ class ItemsController < ApplicationController
   end
   
   def new
+    
     @item = @retailer.items.new
-    @category_options = Category.all.map{|c| [c.category, c.id]}
+    
   end
 
   def edit
-    @category_options = Category.all.map{|c| [c.category, c.id]}
+    
   end
 
   def create
@@ -72,6 +73,10 @@ class ItemsController < ApplicationController
   
     def find_item
       @item = @retailer.items.find(params[:id])
+    end
+  
+    def category_options
+      @category_options = Category.all.map{|c| [c.category, c.id]}
     end
   
   

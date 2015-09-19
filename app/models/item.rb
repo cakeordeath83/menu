@@ -4,11 +4,12 @@ class Item < ActiveRecord::Base
  
   accepts_nested_attributes_for :category 
   validates_presence_of :name, :price, :category
-
+  
+   
+  validates_uniqueness_of :name
+  #validates_numericality_of :price, :less_than => 10, :message => "must be less than £10. Did you add a decimal point?"
     
-  def self.random
-    where(id: 13)
-  end
+  
   
   
 end

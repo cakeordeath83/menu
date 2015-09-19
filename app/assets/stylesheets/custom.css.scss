@@ -163,3 +163,16 @@ body {
   padding: auto;
   margin-top: 40px;
 }
+body > footer > div > div > ul > li > a {
+  text-decoration: none;
+  color: white;
+}
+body > footer > div > div > ul > li > a:hover {
+  text-decoration: none;
+  background-color: #990000;
+}
+body > footer > div > div > ul > li > a:visited {
+  text-decoration: none;
+  background-color: #990000;
+  color: white;
+}

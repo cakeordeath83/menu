@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'static_pages/welcome'
 
   resources :paperclip_images
+  get 'static_pages/fake_page'
   get 'static_pages/welcome'
   get 'static_pages/random'
   get 'items/random'
