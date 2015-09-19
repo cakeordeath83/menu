@@ -8,6 +8,7 @@
       <tr>
         <td><h4>Category</h4></td>
         <td><h4>Order</h4></td>
+        <td><h4>Added to random?</h4></td>
       </tr>
     </thead>
     
@@ -16,6 +17,7 @@
         <% @categories.each do |category| %>
         <td><%= category.category %></td>
         <td><%= category.order_number %></td>
+        <td><%= category.random %></td>
         <td><%= link_to "Edit", edit_category_path(category) %>
       </tr>
         <% end %>

@@ -3,6 +3,9 @@
 
     <%= f.text_field :category %>
     <%= f.number_field :order_number %>
+  <%= f.form_group :random do %>
+  <%= f.check_box :random, label: "This should be included in randomiser" %>
+  <% end %>
     <%= f.submit %>
 
   <% end %>

@@ -38,7 +38,7 @@ class CategoriesController < ApplicationController
   end
   
   def category_params
-    params.require(:category).permit(:category, :order_number)
+    params.require(:category).permit(:category, :order_number, :random)
   end
   
 end
