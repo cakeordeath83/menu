@@ -65,6 +65,11 @@
     <%= @retailer.postcode %><br>
     <br>
     <p>Opening hours: <%= @retailer.openinghours %></p><br>
+    <% if correct_retailer %>
+    <%= link_to "Edit details", edit_retailer_path(@retailer), class:"btn btn-default" %>
+    <% end %>
+    <br>
+    <br>
     <%= image_tag "http://maps.google.com/maps/api/staticmap?size=250x250&sensor=false&zoom=17&markers=#{@retailer.latitude}%2C#{@retailer.longitude}" %>
     <br>
     
