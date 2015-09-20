@@ -24,10 +24,10 @@
         
         <!-- Find a retailer -->
         <div class="col-md-4" >
-          <h3>Find a retailer</h3>
+        <h3>Choose your food</h3>
             <div class="form-group" style="width:300px; padding-left:55px;">
               <%= form_tag(retailers_path, :method => "get") do %>
-              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search retailers" %><br>
+              <%= select("category", "category_id", Category.all.map {|a| [a.category, a.id]}, {}, :class => "form-control")%><br>
               <button class="btn btn-default", type="submit">Submit</button>
               <% end %>
             </div>
