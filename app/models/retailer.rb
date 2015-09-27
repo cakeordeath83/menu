@@ -43,4 +43,5 @@ class Retailer < ActiveRecord::Base
     self.role == 'admin'
   end
   
+   
 end

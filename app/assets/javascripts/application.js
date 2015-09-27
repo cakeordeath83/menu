@@ -15,24 +15,3 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
-//= require bootstrap-tour
-
-var tour = new Tour({
-  steps: [
-  {
-    element: "#starthere",
-    title: "This is Clair's title",
-    content: "This is Clair's first bit of content"
-  },
-  {
-    element: "#second bit",
-    title: "Title of my second step",
-    content: "Content of my second step"
-  }
-]});
-
-// Initialize the tour
-tour.init();
-
-// Start the tour
-tour.start();

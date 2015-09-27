@@ -5,14 +5,17 @@ class RetailersController < ApplicationController
   
   
   def index
-    
-    if postcode_given == true
-      @retailers = Retailer.near(params[:search], 0.25)
+    if params[:postcode]
+      @retailers = Retailer.near(params[:postcode], 0.25)
       if @retailers.empty?
         redirect_to no_results_path
       end
     elsif params[:search]
       @retailers = Retailer.search(params[:search])
+      @search = params[:search]
+      if @retailers.empty?
+         redirect_to no_results_path
+      end
     elsif params[:category]
       @retailers = Retailer.joins(:items).where(items: {category_id: params[:category][:category_id]}).uniq
     else
@@ -23,31 +26,24 @@ class RetailersController < ApplicationController
   def show
   end
 
-  
   def new
     @retailer = Retailer.new
   end
 
-  # GET /retailers/1/edit
   def edit
   end
 
-  # POST /retailers
-  # POST /retailers.json
   def create
     @retailer = Retailer.new(retailer_params)
        if @retailer.save
          session[:retailer_id] = @retailer.id
          redirect_to retailer_items_path(@retailer)
        else
-         
          render :new
        end
   end
 
-  # PATCH/PUT /retailers/1
-  # PATCH/PUT /retailers/1.json
-  def update
+ def update
     respond_to do |format|
       if @retailer.update(retailer_params)
         format.html { redirect_to retailer_items_path(@retailer), notice: 'Your details were successfully updated.' }
@@ -57,11 +53,8 @@ class RetailersController < ApplicationController
         format.json { render json: @retailer.errors, status: :unprocessable_entity }
       end
     end
-      
   end
 
-  # DELETE /retailers/1
-  # DELETE /retailers/1.json
   def destroy
     @retailer.destroy
     respond_to do |format|
@@ -70,15 +63,9 @@ class RetailersController < ApplicationController
     end
   end
   
-  # Codebar - doesn't seem to work when I try and run it in the view
-  def postcode_given
-    if params[:search] =~ /^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$/
-      true
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
+   
+private
+    
     def set_retailer
       @retailer = Retailer.find(params[:id])
     end
@@ -88,18 +75,16 @@ class RetailersController < ApplicationController
       params.require(:retailer).permit(:name, :address, :address2, :address3, :city, :postcode, :email, :openinghours, :description, :password, :password_confimation, :asset)
     end
   
-  def correct_retailer
-    @retailer = Retailer.find(params[:id])
-    if @retailer != current_retailer
-      respond_to do |format|
-      format.html { redirect_to retailers_path, flash: "Sorry, you can't do that." }
+    def correct_retailer
+      @retailer = Retailer.find(params[:id])
+      if @retailer != current_retailer
+        respond_to do |format|
+        format.html { redirect_to retailers_path, flash: "Sorry, you can't do that." }
+        end
       end
     end
-  end
-  
-  
-  
-  def current_retailer
-    Retailer.find(session[:retailer_id]) if session[:retailer_id]
-  end
-end
+
+    def current_retailer
+      Retailer.find(session[:retailer_id]) if session[:retailer_id]
+      end
+    end

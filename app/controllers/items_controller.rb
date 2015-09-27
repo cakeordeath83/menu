@@ -12,18 +12,14 @@ class ItemsController < ApplicationController
   end
   
   def new
-    
-    @item = @retailer.items.new
-    
+   @item = @retailer.items.new
   end
 
   def edit
-    
   end
 
   def create
     @item = @retailer.items.new(item_params)
-
     respond_to do |format|
       if @item.save
         # May need to sort the @item part to retailer_item_path
@@ -37,7 +33,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    
     respond_to do |format|
       if @item.update(item_params)
         format.html { redirect_to retailer_items_path, notice: 'Item was successfully updated.' }
@@ -64,7 +59,7 @@ class ItemsController < ApplicationController
   end
   
   private
-    # Use callbacks to share common setup or constraints between actions.
+ 
     
   
     def find_retailer
