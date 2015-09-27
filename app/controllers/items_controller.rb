@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :find_retailer, only: [:new, :create, :show, :update, :destroy, :edit, :index]
   before_action :find_item, only: [:show, :update, :destroy, :edit]
-  before_action :category_options, only: [:new, :edit, :update] 
+  before_action :category_options, only: [:new, :edit, :update, :create] 
   helper_method :random_id
   
   def index

@@ -19,6 +19,7 @@
         <td><%= category.order_number %></td>
         <td><%= category.random %></td>
         <td><%= link_to "Edit", edit_category_path(category) %>
+        <td><%= link_to "Delete", category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %>  
       </tr>
         <% end %>
      

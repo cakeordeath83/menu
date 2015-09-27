@@ -8,7 +8,7 @@
        <!-- Find food -->
        <div class="col-md-4" >
         <h3>Search for closest</h3>
-             <div class="form-group" style="width:300px; padding-left:55px;">
+             <div class="form-group" style="width:300px; padding-left:55px;" id="starthere">
              <%= form_tag(retailers_path, :method => "get") do %>
              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Enter your postcode" %><br>
              <button class="btn btn-default", type="submit">Submit</button>

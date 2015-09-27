@@ -19,6 +19,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootstrap_form', '~>2.3.0'
 gem 'geocoder'
 gem 'pg'
+gem 'bootstrap-tour-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
