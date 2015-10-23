@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="welcomebox col-md-offset-2 col-md-8" style="margin-top:200px;">
+    
+     <h3>Sorry, there don't appear to be any retailers within a 5 minute walk of you</h3><br>
+       <h5>Please try a different postcode</h5><br>
+          <div class="form-group col-md-offset-4 col-md-4" >
+             <%= form_tag(retailers_path, :method => "get") do %>
+            <%= text_field_tag :postcode, params[:postcode], class: "form-control", placeholder: "Enter your postcode" %><br>
+             <button class="btn btn-default", type="submit">Submit</button>
+             <% end %>
+          </div>
+      
+    
+    
+  </div>
+</div>

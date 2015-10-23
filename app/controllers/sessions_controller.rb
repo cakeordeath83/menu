@@ -4,21 +4,13 @@ class SessionsController < ApplicationController
   
   def create
     @retailer = Retailer.find_by(email: params[:session][:email])
-
-    #binding.pry
-    
-    if @retailer && @retailer.authenticate(params[:session][:password])
-      
+     if @retailer && @retailer.authenticate(params[:session][:password])
       session[:retailer_id] = @retailer.id
-      
       flash[:notice] = "Welcome #{@retailer.name}!"
       redirect_to retailer_items_path(@retailer)
-        
-      
-    else
+     else
       redirect_to login_path
-    end
-    
+     end
   end
   
   def destroy

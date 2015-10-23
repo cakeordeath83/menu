@@ -53,16 +53,13 @@ class ItemsController < ApplicationController
   end
   
   def random
-    # need to write this to find random!!
     array = Item.all.select{|item| item.category.random}.map {|item| item.id}
     @item = Item.find(array.sample)
   end
   
   private
  
-    
-  
-    def find_retailer
+   def find_retailer
       @retailer = Retailer.find(params[:retailer_id])
     end
   

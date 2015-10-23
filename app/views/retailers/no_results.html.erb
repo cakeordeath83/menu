@@ -1,21 +1,10 @@
-# Codebar - Search (or postcode) params don't seem to be available to this view.
-# Seems to be fine if the search is sucessful and it makes it to the index page.
+
 
 
 <div class="container">
   <div class="welcomebox col-md-offset-2 col-md-8" style="margin-top:200px;">
-    <% if params[:postcode] %>
-     <h3>Sorry, there don't appear to be any retailers near you</h3><br>
-       <h5>Please try a different postcode</h5><br>
-          <div class="form-group col-md-offset-4 col-md-4" >
-             <%= form_tag(retailers_path, :method => "get") do %>
-            <%= text_field_tag :postcode, params[:postcode], class: "form-control", placeholder: "Enter your postcode" %><br>
-             <button class="btn btn-default", type="submit">Submit</button>
-             <% end %>
-          </div>
-      
-    <% else %>
-      <h3>Sorry, we can't find a retailer named <%=params[:search]%></h3><br>
+    
+		<h3>Sorry, we can't find a retailer with that name</h3><br>
          <h5>Please try a different search</h5><br>
     <p><%= params[:search]%></p>
             <div class="form-group col-md-offset-4 col-md-4" >
@@ -24,10 +13,8 @@
                <button class="btn btn-default", type="submit">Submit</button>
                <% end %>
             </div>
-     <% end %>
+  
     
-    <p>Params: <%= params %></p>
-    <p>Search Params: <%= params[:search] %></p>
-    <p>Search from controller <%= @search %> </p>
+    
   </div>
 </div>

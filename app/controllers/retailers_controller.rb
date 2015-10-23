@@ -8,13 +8,13 @@ class RetailersController < ApplicationController
     if params[:postcode]
       @retailers = Retailer.near(params[:postcode], 0.25)
       if @retailers.empty?
-        redirect_to no_results_path
+				redirect_to no_postcode_path
       end
     elsif params[:search]
       @retailers = Retailer.search(params[:search])
       @search = params[:search]
       if @retailers.empty?
-         redirect_to no_results_path
+				redirect_to no_results_path
       end
     elsif params[:category]
       @retailers = Retailer.joins(:items).where(items: {category_id: params[:category][:category_id]}).uniq
@@ -23,6 +23,8 @@ class RetailersController < ApplicationController
     end
   end
 
+	
+	
   def show
   end
 

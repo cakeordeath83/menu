@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-  <%= params %>
-<p>Params search <%= params[:search]%> </p>
+ 
+
 <% if params[:category] %>
   <h3 style="text-align:center; margin-top:50px;">Here are all the retailers that sell <%= Category.find_by_id(params[:category][:category_id]).category.downcase %></h3>
 <% end %>
