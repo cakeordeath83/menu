@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Welcome #{@retailer.name}!"
       redirect_to retailer_items_path(@retailer)
      else
+			 flash[:error] = "Something went wrong"
       redirect_to login_path
      end
   end
